@@ -16,7 +16,7 @@ def sendemail(request):
         name = request.POST['name']
         email = request.POST['email']
         message = request.POST['message']
-        send_mail(name+ " want to ask/tell something " ,"Email : \n "+ email +message,'hrpatel8935@gmail.com',['harshpatel281199@gmail.com'])
+        send_mail(name+ " want to ask/tell something " ,"Email : \n "+ email +message,'harshweb2811@gmail.com',['harshpatel281199@gmail.com'])
 
         msg =  json.dumps({"status":"success","data":"Sent"})
         return HttpResponse(msg)
