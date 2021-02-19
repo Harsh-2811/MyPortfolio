@@ -38,14 +38,14 @@
     }
     .box{
     padding:60px 0px;
-    
+
 }
 
 .box-part{
-  
-  
 
-  
+
+
+
     padding:60px 10px;
     margin:30px 0px;
 }
@@ -167,7 +167,7 @@
   <!-- Callout -->
   <section class="callout">
     <div class="container text-center">
-      <h2 class="mx-auto mb-5">Certificates
+      <h2 class="mx-auto mb-5">Certificates</h2>
 
 
       </div>
@@ -175,13 +175,14 @@
       <div class="swiper-container">
         <div class="swiper-wrapper">
           {% for certificate in certificates%}
-          <div class="swiper-slide" style="background-image:url('{{ certificate.image.url }}')"></div>
-          
+          <div class="swiper-slide" style="">
+            <img src="{{ certificate.image.url}}" class="img-fluid">
+          </div>
+
           {% endfor %}
 
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
+
       </div>
   </section>
 
@@ -358,7 +359,7 @@
       });
 
 
-    
+
   </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
