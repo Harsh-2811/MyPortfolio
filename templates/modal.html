@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <title>{{project.title}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css ' %}" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="{% static 'css/stylish-portfolio.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Demo styles -->
+    <style>
+        
+        .swiper-container {
+          width: 100%;
+          height: 100%;
+        }
+    
+        .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+    
+          /* Center slide text vertically */
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+        }
+        .description_model{
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 15px;
+        }
+        .technology_model h2{
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .technology_model li{
+            font-size: qrem;
+            font-weight: bold;
+       
+        }
+        .technology_model .link{
+            font-weight: bold;
+            padding: 5px;
+            font-size:1.3rem
+            
+        }
+        .link a{
+            text-decoration: none;
+        }
+        
+      </style>
+</head>
+<body>
+    <a class="menu-toggle rounded" href="#">
+        <i class="fas fa-bars"></i>
+      </a>
+      <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a class="js-scroll-trigger" href="/#page-top">HRP</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/#page-top">Home</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/#about">About</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/#services">Services</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/#portfolio">Portfolio</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/#contact">Contact</a>
+          </li>
+          <li class="sidebar-nav-item">
+            <a class="js-scroll-trigger" href="/#technology">Technology</a>
+          </li>
+        </ul>
+      </nav>
+    
+      <!-- Header -->
+      <header class="masthead d-flex">
+        <div class="container text-center my-auto">
+          <h1 class="mb-1">Harsh Patel - Computer Engineer</h1>
+          <h3 class="mb-5">
+            <em>A Django Fullstack Developer</em>
+          </h3>
+         
+        </div>
+        <div class="overlay"></div>
+      </header>
+<div class="container">
+  
+  
+        <div class="modal-header">
+          <h4 class="modal-title text-primary ml-3">{{ project.title }}</h4>
+          
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="swiper1 swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="{{ project.main_image.url }}" class="img-fluid" alt=""></div>
+                  <div class="swiper-slide"><img src="{{ project.image1.url }}" class="img-fluid" alt=""></div>
+                  <div class="swiper-slide"><img src="{{ project.image2.url }}" class="img-fluid" alt=""></div>
+                  <div class="swiper-slide"><img src="{{ project.image3.url }}" class="img-fluid" alt=""></div>
+                  <div class="swiper-slide"><img src="{{ project.image4.url }}" class="img-fluid" alt=""></div>
+            
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+            <div class="container">
+                <div class="description_model mt-3">
+                    {{ project.description }}
+                </div>
+                <div class="technology_model">
+                        <h2 class="text-primary ml-3">
+                            Technologies
+                        </h2>
+                        <div class="techs">
+                            <ul>
+                                {% for techs in project.technologies%}
+                                <li>{{ techs }}</li>
+                            
+                               
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        {% if project.link %}
+                        <div class="link ml-3">
+                          <span>URL <i class="fa fa-link" aria-hidden="true"></i> </span>  <a href="{{project.link}}">{{project.link}}</a>
+                        </div>
+
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/stylish-portfolio.min.js' %}"></script>
+<script>
+    var swiper = new Swiper('.swiper1', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+
+</body>
+</html>
